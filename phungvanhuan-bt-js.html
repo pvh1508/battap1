@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        select{
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <select id="input" onchange="ChangeList()">
+        <option value="">CHỌN</option>
+        <option value="all">ALL</option
+        <option value="net">.NET</option> 
+        <option value="angular">ANGULAR</option>
+        <option value="java">JAVA</option> 
+        <option value="test">TEST</option> 
+      </select>
+
+      <div id="output">
+        <select>
+            <option></option>
+        </select>
+      </div>
+       
+    <script>
+        var students = [
+            {id: 1, name: 'tran van a', className: '.net'},
+            {id: 2, name: 'tran van b', className: '.net'},
+            {id: 3, name: 'tran van c', className: 'angular'},
+            {id: 4, name: 'tran van d', className: 'angular'},
+            {id: 5, name: 'tran van e', className: 'java'},
+            {id: 6, name: 'tran van f', className: 'java'},
+            {id: 7, name: 'tran van g', className: 'java'},
+            {id: 8, name: 'tran van h', className: 'test'},
+            {id: 9, name: 'tran van i', className: 'test'},
+            {id: 10, name: 'tran van j', className: 'test'}];
+
+    function ChangeList(){
+        var a = document.getElementById('input').value;
+            if(a == "net"){
+                var array = ['tran van a', 'tran van b'];
+            }
+            else if(a == "angular"){
+                var array = ['tran van c', 'tran van d'];
+            }
+            else if(a == "java"){
+                var array = ['tran van e', 'tran van f', 'tran van g'];
+            }
+            else if(a == "test"){
+                var array = ['tran van h', 'tran van i', 'tran van j'];
+            }
+            else if(a ==""){
+                var array = ['']
+            }
+            else{
+                var array = ['tran van a', 'tran van b','tran van c', 'tran van d',
+                'tran van e', 'tran van f', 'tran van g','tran van h', 'tran van i', 'tran van j'];
+            };
+
+            var result = "";
+            for( i=0; i<array.length; i++ ){
+
+                result = result +"<option>" +array[i] + "</option>";
+            }
+            result = "<select>" + result + "</select>"; 
+            document.getElementById('output').innerHTML = result;
+    }
+
+
+
+
+    </script>
+</body>
+</html>
